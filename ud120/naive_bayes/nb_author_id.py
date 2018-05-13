@@ -9,17 +9,27 @@
     Sara has label 0
     Chris has label 1
 """
-    
+
 import sys
 from time import time
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
+
 sys.path.append("../tools/")
 from email_preprocess import preprocess
-
 
 ### features_train and features_test are the features for the training
 ### and testing datasets, respectively
 ### labels_train and labels_test are the corresponding item labels
+t0 = time()
 features_train, features_test, labels_train, labels_test = preprocess()
+print "training time:", round(time()-t0, 3), "s"
+gnb = GaussianNB()
+gnb.fit(features_train, labels_train)
+t1 = time()
+labels_predit = gnb.predict(features_test)
+print "predict time:", round(time()-t1, 3), "s"
+print accuracy_score(labels_predit, labels_test)
 
 
 
@@ -29,5 +39,3 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 
 #########################################################
-
-
