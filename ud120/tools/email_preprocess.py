@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# coding=utf-8
 
 import pickle
 import cPickle
@@ -49,7 +50,8 @@ def preprocess(words_file="../tools/word_data.pkl", authors_file="../tools/email
 
     ### feature selection, because text is super high dimensional and
     ### can be really computationally chewy as a result
-    selector = SelectPercentile(f_classif, percentile=10)
+    # percentile改为1，则特征数减少10倍
+    selector = SelectPercentile(f_classif, percentile=1)
     selector.fit(features_train_transformed, labels_train)
     features_train_transformed = selector.transform(features_train_transformed).toarray()
     features_test_transformed = selector.transform(features_test_transformed).toarray()
