@@ -11,6 +11,7 @@
 import sys
 from time import time
 sys.path.append("../tools/")
+from sklearn import tree
 from email_preprocess import preprocess
 
 
@@ -19,13 +20,8 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
+clf = tree.DecisionTreeClassifier()
+clf.fit(features_train, labels_train)
 
-
-
-#########################################################
-### your code goes here ###
-
-
-#########################################################
 
 
