@@ -24,9 +24,10 @@ def parseOutText(f):
     content = all_text.split("X-FileName:")
     words = ""
     if len(content) > 1:
+        # print content[1]
         ### remove punctuation
         text_string = content[1].translate(string.maketrans("", ""), string.punctuation)
-
+        # print text_string
         ### project part 2: comment out the line below
         # words = text_string
 
@@ -36,13 +37,11 @@ def parseOutText(f):
         stemmer = SnowballStemmer('english')
 
         for text in text_string.split():
-            for item in text.split():
-                stem = stemmer.stem(item)
-                words = words + ' ' + stem
-
+            stem = stemmer.stem(text)
+            words = words + ' ' + stem
     return words
 
-    
+
 
 def main():
     ff = open("../text_learning/test_email.txt", "r")
