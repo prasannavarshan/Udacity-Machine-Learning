@@ -41,8 +41,8 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         # print "name:", name, "from_person:", from_person
         ### only look at first 200 emails when developing
         ### once everything is working, remove this line to run over full dataset
-        temp_counter += 1
-        if temp_counter < 200:
+        # temp_counter += 1
+        # if temp_counter < 200:
             path = os.path.join('/Users/zhaoxuyan/Desktop', path[:-1])
             # print path
             email = open(path, "r")
@@ -53,7 +53,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             # 向 word_data 添加更新的文本字符串——如果邮件来自 Sara，向 from_data 添加 0（零），如果是 Chris 写的邮件，则添加 1。
             # 完成此步骤后，你应该有两个列表：一个包含了每封邮件被词干化的正文，第二个应该包含用来编码（通过 0 或 1）谁是邮件作者的标签。
 
-            for x in ["sara", "shackleton", "chris", "germani"]:
+            for x in ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]:
                 words = words.replace(x, '')
             ### append the text to word_data
             word_data.append(words)
@@ -84,4 +84,4 @@ features_name = vector.get_feature_names()
 # 访问单词和特征数字之间的映射，该函数返回一个包含词汇表所有单词的列表。有多少不同的单词？
 print features_name
 print len(features_name)
-# print features_name[34597]
+print features_name[34597]
