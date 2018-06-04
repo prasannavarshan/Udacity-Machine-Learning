@@ -116,6 +116,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random
 # Udatity作业
 n_components2 = [10, 15, 25, 50, 100, 250]
 for i in n_components2:
+    print "n_components是", i, "时："
     pca2 = PCA(svd_solver='randomized', n_components=i, whiten=True).fit(X_train)
     eigenfaces2 = pca2.components_.reshape((i, h, w))
     X_train_pca = pca2.transform(X_train)
