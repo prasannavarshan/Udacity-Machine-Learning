@@ -22,6 +22,10 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="naive_bayes.nb_author_id.email_preprocess" />
+          <option value="object.transform" />
+          <option value="object.components_" />
+          <option value="matplotlib.cm.gray" />
+          <option value="object.explained_variance_ratio_" />
         </list>
       </option>
     </inspection_tool>
